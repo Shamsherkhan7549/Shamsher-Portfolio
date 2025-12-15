@@ -1,8 +1,8 @@
 import SKILLMODEL from "../models/skillModel.js";
 
 const addSkill = async(req,res) => {
-    try {
-        const newSkill = new SKILLMODEL({skill:req.body.skill});
+    try {       
+        const newSkill = new SKILLMODEL(req.body);
         await newSkill.save();
 
         res.json({success:true, message:"skill added"});
