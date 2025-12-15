@@ -7,7 +7,8 @@ const url = import.meta.env.VITE_BACKEND_URL;
 const AddSkills = () => {
 
     const [skill, setSkill] = useState("");
-    const [imageUrl, setImageUrl] = useState("");    
+    const [imageUrl, setImageUrl] = useState("");  
+    const [isImgUploaded, setIsImgUploaded] = useState(false)  
 
     const handleSkill = (e) => {
         setSkill(e.target.value)
@@ -23,6 +24,7 @@ const AddSkills = () => {
         const res = await axios.post(`${url}/api/upload`,formData)
         if(res.data.success){
             setImageUrl(res.data.data);
+            setIsImgUploaded(true)
         }
       } catch (error) {
         console.log("add skill error: " , error.message); 
@@ -58,7 +60,7 @@ const AddSkills = () => {
             <div className='flex flex-col justify-center w-100 my-5'>
                 <label className='mb-3' htmlFor="img">Upload Emogi</label>
                 <input onChange={handleImg} className='w-80 border-grey-50 border px-4 py-2 rounded cursor-pointer' name='img' id="img" type="file" placeholder='' />
-
+                {isImgUploaded? <p className='text-green-400 font-semibold'>Image Uploaded</p> : <p className='text-red-400 font-semibold'>Wait.. to upload Image</p> }
                 <button className='bg-blue-700 text-white py-2 px-5 rounded w-30 my-4 cursor-pointer'>Save</button>
             </div>
         </form>
