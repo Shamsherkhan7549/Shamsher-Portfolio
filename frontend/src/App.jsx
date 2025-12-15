@@ -6,6 +6,7 @@ import Project from './pages/Projects/Project'
 import Contact from './pages/Contact/Contact'
 import Skills from './pages/Skills/Skills'
 import Navbar from './components/Navbar'
+import AddSkills from './components/AddSkills'
 
 
 const App = () => {
@@ -18,6 +19,7 @@ const App = () => {
         <Route path="/projects" element={<Project />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/skills" element={<Skills />} />
+        <Route path="//add-skill" element={<AddSkills />} />
       </Routes>
     </Router>
   )
