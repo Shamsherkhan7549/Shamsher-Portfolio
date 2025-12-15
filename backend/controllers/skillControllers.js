@@ -12,4 +12,14 @@ const addSkill = async(req,res) => {
     }
 };
 
-export {addSkill}
+const getAllSkills = async(req, res) => {
+    try {
+        const skills = await SKILLMODEL.find({});
+        if(!skills)res.json({success:false, message:"skills not found"});
+        res.json({success:true, data:skills});
+    } catch (error) {
+        res.json({success:true, message:error.message});
+    }
+}
+
+export {addSkill, getAllSkills};

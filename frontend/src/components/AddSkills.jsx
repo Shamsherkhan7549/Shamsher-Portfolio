@@ -35,7 +35,7 @@ const AddSkills = () => {
         e.preventDefault();
         try {
             if(!imageUrl) return console.log("wait to upload image");
-            const res = await axios.post(`${url}/api/add-skill`, {skill, image:imageUrl});
+            const res = await axios.post(`${url}/api/skills`, {skill, image:imageUrl});
            
             if(res.data.success){
                 console.log(res.data.message);
