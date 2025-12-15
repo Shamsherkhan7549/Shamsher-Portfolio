@@ -15,7 +15,7 @@ const Skills = () => {
     try {
       const res = await axios.get(`${url}/api/skills`);
       console.log(res);
-      
+
       if (res.data.success) {
         setSkills(res.data.data)
       }
@@ -28,19 +28,20 @@ const Skills = () => {
     getAllSkills();
   }, [])
   return (
-    <div className='text-center py-20'>
-      <h1 className='text-4xl font-bold flex justify-center items-center'>
+    <div className='text-center py-10'>
+      <h1 className='sm:text-4xl text-2xl font-bold flex justify-center items-center'>
         <TerminalIcon fontSize='inherit mr-4' />
         Skills & <span className='text-yellow-400 mx-2'>Abilities</span>
       </h1>
 
-      <div className='py-10 px-30'>
 
+      <div className='grid xl:grid-cols-6 lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-4 py-10 lg:px-50 sm:px-30 px-10'>
         {
-          skills ? (
-            skills.map((skill) => (
-              <main className='flex justify-center items-center bg-blue-950 w-30 h-30 gap-3 p-3 text-white rounded'>
-                <AnimatePresence mode="wait">
+        skills ? (
+          skills.map((skill) => (
+            <div key={skill._id} className='containercontainer w-100'>
+              <main  className='flex justify-center items-center text-center bg-blue-950 w-30 h-30 gap-3 p-3 text-white rounded'>
+                <AnimatePresence mode="wait ">
                   <motion.div
                     initial={{ y: 10, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
@@ -52,29 +53,31 @@ const Skills = () => {
                   </motion.div>
                 </AnimatePresence>
               </main>
-            ))
-          ) : (
-            <p>loading....</p>
-          )
-        }
+            </div>
+          ))
+        ) : (
+          <p>loading....</p>
+        )
+      }
 
-        <main onClick={() => (navigate("/add-skill"))} className='flex justify-center align-center bg-blue-950 text-white w-30 h-30 flex items-center gap-3 rounded cursor-pointer'>
-          <AnimatePresence mode="wait">
-            <motion.div
-              initial={{ y: 10, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: -10, opacity: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              <AddIcon fontSize='large' />
-              <p className='text-xl font-semibold'>Add Skills</p>
-            </motion.div>
-          </AnimatePresence>
-        </main>
-
-
-
+      <main onClick={() => (navigate("/add-skill"))} className='flex justify-center align-center bg-blue-950 text-white w-30 h-30 flex items-center gap-3 rounded cursor-pointer'>
+        <AnimatePresence mode="wait">
+          <motion.div
+            initial={{ y: 10, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: -10, opacity: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <AddIcon fontSize='large' />
+            <p className='text-xl font-semibold'>Add Skills</p>
+          </motion.div>
+        </AnimatePresence>
+      </main>
       </div>
+
+
+      
+
     </div>
   )
 }
