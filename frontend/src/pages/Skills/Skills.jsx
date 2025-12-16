@@ -39,7 +39,7 @@ const Skills = () => {
         {
         skills ? (
           skills.map((skill) => (
-            <div key={skill._id} className='containercontainer w-100'>
+            <div key={skill._id} className='container w-100'>
               <main  className='flex justify-center items-center text-center bg-blue-950 w-30 h-30 gap-3 p-3 text-white rounded'>
                 <AnimatePresence mode="wait ">
                   <motion.div
