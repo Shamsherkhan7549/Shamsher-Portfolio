@@ -26,24 +26,24 @@ const Contact = () => {
 
   return (
     <form onSubmit={handleSubmit} className='py-10 md:px-50 sm:px-30 px-10'>
-      <h1 className='text-4xl font-bold pb-5'>Get In <span className='text-purple-500'>Touch</span></h1>
+      <h1 className='md:text-4xl text-3xl font-bold pb-5'>Get In <span className='text-purple-500'>Touch</span></h1>
 
       <div className='flex gap-2 items-center border border-gray-500 p-3 rounded '>
         <PersonIcon/>
-        <input onChange={handleContactInfo} name='name' type="text" placeholder='Name' className='outline-none leading-2 w-full h-10 p-2 rounded' />
+        <input onChange={handleContactInfo} name='name' type="text" placeholder='Name' className='outline-none leading-2 w-full bg-none  px-2 py-1 rounded' />
       </div>
 
       <div className='flex gap-2 items-center border border-gray-500 p-3 rounded my-3'>
         <EmailIcon/>
-        <input onChange={handleContactInfo} name='email' type="email" placeholder='Email' className='outline-none leading-2 w-full h-10 p-2 rounded' />
+        <input onChange={handleContactInfo} name='email' type="email" placeholder='Email' className='outline-none leading-2 w-full bg-none  px-2 py-1 rounded' />
       </div>
 
       <div className='flex gap-2 items-center border border-gray-500 p-3 rounded '>
         <PhoneIcon/>
-        <input onChange={handleContactInfo} name='phone' type="text" placeholder='Phone' className='outline-none leading-2 w-full h-10 p-2 rounded' />
+        <input onChange={handleContactInfo} name='phone' type="text" placeholder='Phone' className='outline-none leading-2 w-full px-2 py-1 rounded' />
       </div>
 
-      <div className='flex gap-2 items-center border border-gray-500 p-3 rounded my-3'>
+      <div className='flex gap-2 items-start border border-gray-500 p-3 rounded my-3'>
         <CommentIcon/>
         <textarea onChange={handleContactInfo} name='message' type="text" placeholder='Message' className='outline-none leading-6 w-full resize-none' rows={6} />
       </div>
