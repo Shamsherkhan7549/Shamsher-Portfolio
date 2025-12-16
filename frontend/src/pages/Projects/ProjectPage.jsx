@@ -1,12 +1,32 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Project from '../../components/Project'
 import ComputerIcon from '@mui/icons-material/Computer';
 import AddBoxIcon from '@mui/icons-material/AddBox';
 import * as motion from "motion/react-client";
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios'
+
+const url = import.meta.env.VITE_BACKEND_URL;
 
 const ProjectPage = () => {
   const navigate = useNavigate();
+  const [projects , setProjects] = useState([]);
+
+  const getAllProjects = async() => {
+    try {
+      const res = await axios.get(`${url}/projects`);      
+      if(res.data.success){
+        setProjects(res.data.data);
+      }
+    } catch (error) {
+      console.log(error.message);
+      
+    }
+  }
+
+  useEffect(()=>{
+    getAllProjects()
+  },[]);
 
   return (
     <div className='px-30 py-10'>
@@ -15,7 +35,17 @@ const ProjectPage = () => {
         <ComputerIcon fontSize='large' />
         <h1 className='text-4xl font-bold text-center' >Project <span className='text-yellow-400'>Made</span></h1>
       </div>
-      <Project />
+
+      {
+        projects ? (
+          projects.map(project=>(
+            <Project key={project._id} project={project.project} link={project.link} description={project.description} image={project.image} />
+          ))
+        ):
+        (
+          <p>Loading...</p>
+        )
+      }
 
       <motion.div
         whileHover={{ scale: 1.2 }}
