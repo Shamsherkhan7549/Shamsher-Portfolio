@@ -43,9 +43,9 @@ const Navbar = () => {
       <ul className={`${isOpen ? "right-0" : "right-[-140px]"} duration-200  delay-5 ease-in-out flex flex-col gap-3 sm:right-[-140px] bg-red-50 p-10 absolute top-16 `}>
         <li className={` ${active === "home" ? "text-blue-500 underline  underline-offset-6 decoration-2" : ""} cursor-pointer font-bold`} onClick={() => handleActive("home")}> <Link to={'/'}> Home </Link> </li>
         <li className={` ${active === "about" ? "text-blue-500 underline  underline-offset-6 decoration-2" : ""} cursor-pointer font-bold`} onClick={() => handleActive("about")}> <Link to={'/about'}> About </Link> </li>
+        <li className={` ${active === "skills" ? "text-blue-500 underline  underline-offset-6 decoration-2" : ""} cursor-pointer font-bold`} onClick={() => handleActive("skills")}> <Link to={'/skills'}> Skills </Link> </li>
         <li className={` ${active === "projects" ? "text-blue-500 underline  underline-offset-6 decoration-2" : ""} cursor-pointer font-bold`} onClick={() => handleActive("projects")}> <Link to={'/projects'}> Projects </Link> </li>
         <li className={` ${active === "contact" ? "text-blue-500 underline  underline-offset-6 decoration-2" : ""} cursor-pointer font-bold`} onClick={() => handleActive("contact")}> <Link to={'/contact'}> Contact </Link> </li>
-        <li className={` ${active === "skills" ? "text-blue-500 underline  underline-offset-6 decoration-2" : ""} cursor-pointer font-bold`} onClick={() => handleActive("skills")}> <Link to={'/skills'}> Skills </Link> </li>
       </ul>
     </div>
   )
