@@ -9,7 +9,6 @@ dotenv.config();
 const port = process.env.PORT;
 
 const app = express();
-connectDb();
 
 app.use(cors({
     origin:process.env.VITE_FRONTEND_URL,
@@ -17,6 +16,8 @@ app.use(cors({
     credentials:true
 }));
 app.use(express.json());
+
+connectDb();
 
 app.use('/api', router)
 
