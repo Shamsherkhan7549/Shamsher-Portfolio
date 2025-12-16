@@ -9,6 +9,7 @@ const AddProjects = () => {
 
     const [project, setProject] = useState("");
     const [description, setDescription] = useState("");
+    const [link, setLink] = useState("");
     const [imageUrl, setImageUrl] = useState("");  
     const [isImgUploaded, setIsImgUploaded] = useState(false)  
     const navigate = useNavigate();
@@ -19,6 +20,12 @@ const AddProjects = () => {
     const handleDescription = (e) => {
         setDescription(e.target.value)
     }
+
+    const handleLink = (e) => {
+        setLink(e.target.value)
+    }
+
+    handleLink
 
     const handleImg = async(e) => {
       try {
@@ -41,7 +48,8 @@ const AddProjects = () => {
         e.preventDefault();
         try {
             if(!imageUrl) return console.log("wait to upload image");
-            const res = await axios.post(`${url}/api/projects`, {project,description, image:imageUrl});
+            const res = await axios.post(`${url}/projects`, {project,description,link,image:imageUrl});
+           console.log(res);
            
             if(res.data.success){
                 console.log(res.data.message);
@@ -63,6 +71,11 @@ const AddProjects = () => {
             <div className='flex flex-col justify-center sm:w-100 w-60'>
                 <label className='mb-3' htmlFor="project">Write Project Name</label>
                 <input onChange={handleProject} value={project} className='sm:w-80 w-60 border-grey-50 border px-4 py-2 rounded' name='project' id='project' type="text" placeholder='Write Project Name' />
+            </div>
+
+             <div className='flex flex-col justify-center sm:w-100 w-60 mt-5'>
+                <label className='mb-3' htmlFor="link">Write Project's github/hosted Link</label>
+                <input onChange={handleLink} value={link} className='sm:w-80 w-60 border-grey-50 border px-4 py-2 rounded' name='link' id='link' type="text" placeholder="Write Project's github/hosted link" />
             </div>
 
              <div className='flex flex-col justify-center sm:w-100 w-60 my-5'>
