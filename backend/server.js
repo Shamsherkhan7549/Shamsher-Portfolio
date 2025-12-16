@@ -3,6 +3,7 @@ import dotenv from 'dotenv'
 import connectDb from './configue/connecDb.js';
 import cors from 'cors'
 import router from './routes/skillRoutes.js';
+import emailRouter from './routes/emailRoute.js';
 
 dotenv.config();
 
@@ -19,7 +20,8 @@ app.use(express.json());
 
 connectDb();
 
-app.use('/api', router)
+app.use('/api', router);
+app.use('/', emailRouter)
 
 
 app.get('/', (req, res)=>{
