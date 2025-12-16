@@ -1,8 +1,58 @@
-import React from 'react'
+import React, { useState } from 'react'
+import PersonIcon from '@mui/icons-material/Person';
+import EmailIcon from '@mui/icons-material/Email';
+import PhoneIcon from '@mui/icons-material/Phone';
+import CommentIcon from '@mui/icons-material/Comment';
+import SendIcon from '@mui/icons-material/Send';
 
 const Contact = () => {
+
+  const [contactInfo, setContactInfo] = useState({});
+
+  const handleContactInfo = (e) => {
+    setContactInfo(prev=> ({...prev, [e.target.name]:e.target.value}))
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    try {
+      console.log(contactInfo);
+      
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+
   return (
-    <div>Contact</div>
+    <form onSubmit={handleSubmit} className='py-10 md:px-50 sm:px-30 px-10'>
+      <h1 className='text-4xl font-bold pb-5'>Get In <span className='text-purple-500'>Touch</span></h1>
+
+      <div className='flex gap-2 items-center border border-gray-500 p-3 rounded '>
+        <PersonIcon/>
+        <input onChange={handleContactInfo} name='name' type="text" placeholder='Name' className='outline-none leading-2 w-full h-10 p-2 rounded' />
+      </div>
+
+      <div className='flex gap-2 items-center border border-gray-500 p-3 rounded my-3'>
+        <EmailIcon/>
+        <input onChange={handleContactInfo} name='email' type="email" placeholder='Email' className='outline-none leading-2 w-full h-10 p-2 rounded' />
+      </div>
+
+      <div className='flex gap-2 items-center border border-gray-500 p-3 rounded '>
+        <PhoneIcon/>
+        <input onChange={handleContactInfo} name='phone' type="text" placeholder='Phone' className='outline-none leading-2 w-full h-10 p-2 rounded' />
+      </div>
+
+      <div className='flex gap-2 items-center border border-gray-500 p-3 rounded my-3'>
+        <CommentIcon/>
+        <textarea onChange={handleContactInfo} name='message' type="text" placeholder='Message' className='outline-none leading-6 w-full resize-none' rows={6} />
+      </div>
+
+      <button className='bg-purple-500 text-white px-5 py-3 rounded font-semibold cursor-pointer'>
+        Submit <SendIcon fontSize='small' />
+      </button>
+
+    </form>
   )
 }
 
