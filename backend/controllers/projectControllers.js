@@ -12,5 +12,16 @@ const addProject = async(req, res) => {
     }
 }
 
+const getAllProjects = async(req, res) => {
+    try {
+        const projects = await PROJECTMODEL.find({})
+        if(!projects) return res.json({success:false, message:"project not found"})
+        res.json({success:true, data:projects})
+    } catch (error) {
+        res.json({success:false, message:error.message})
+        
+    }
+}
 
-export {addProject}
+
+export {addProject,getAllProjects}
