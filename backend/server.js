@@ -4,6 +4,7 @@ import connectDb from './configue/connecDb.js';
 import cors from 'cors'
 import router from './routes/skillRoutes.js';
 import emailRouter from './routes/emailRoute.js';
+import projectRouter from './routes/projectRoute.js';
 
 dotenv.config();
 
@@ -21,7 +22,8 @@ app.use(express.json());
 connectDb();
 
 app.use('/api', router);
-app.use('/', emailRouter)
+app.use('/', emailRouter);
+app.use('/', projectRouter)
 
 
 app.get('/', (req, res)=>{
