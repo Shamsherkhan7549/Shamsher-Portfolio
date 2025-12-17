@@ -9,6 +9,7 @@ import Navbar from './components/Navbar'
 import AddSkills from './components/AddSkills'
 import AddProjects from './components/AddProjects'
 import EducationsPage from './pages/educations/EducationsPage'
+import Footer from './components/Footer'
 
 
 const App = () => {
@@ -25,6 +26,7 @@ const App = () => {
         <Route path="/add-projects" element={<AddProjects />} />
         <Route path="/educations" element={<EducationsPage />} />
       </Routes>
+      <Footer/>
     </Router>
   )
 }
