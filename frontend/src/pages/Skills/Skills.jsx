@@ -14,8 +14,6 @@ const Skills = () => {
   const getAllSkills = async () => {
     try {
       const res = await axios.get(`${url}/api/skills`);
-      console.log(res);
-
       if (res.data.success) {
         setSkills(res.data.data)
       }
