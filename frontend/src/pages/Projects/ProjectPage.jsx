@@ -64,7 +64,7 @@ const ProjectPage = () => {
             <motion.div
               whileHover={{ scale: 1.2 }}
               whileTap={{ scale: 0.8 }}
-              className="bg-purple-300 h-60 w-60 cursor-pointer rounded relative overflow-y-hidden"
+              className="bg-[url('/projects.avif')] bg-cover bg-center h-60 w-60 cursor-pointer rounded relative overflow-y-hidden"
             >
 
               <div className='bg-stone-100 h-50 w-60 absolute mt-49 hover:mt-10 duration-300 ease-in-out'>
