@@ -28,9 +28,9 @@ const Navbar = () => {
       <ul className='gap-6 hidden sm:flex'>
         <li className={` ${active === "home" ? "text-blue-500 underline  underline-offset-6 decoration-2" : ""} cursor-pointer font-bold`} onClick={() => handleActive("home")}> <Link to={'/'}> Home </Link> </li>
         <li className={`${active === "about" ? "text-blue-500 underline  underline-offset-6 decoration-2" : ""} cursor-pointer font-bold`} onClick={() => handleActive("about")}> <Link to={'/about'}> About </Link> </li>
+        <li className={`${active === "skills" ? "text-blue-500 underline  underline-offset-6 decoration-2" : ""} cursor-pointer font-bold`} onClick={() => handleActive("skills")}> <Link to={'/skills'}> Skills </Link> </li>
         <li className={`${active === "projects" ? "text-blue-500 underline  underline-offset-6 decoration-2" : ""} cursor-pointer font-bold`} onClick={() => handleActive("projects")}> <Link to={'/projects'}> Projects </Link> </li>
         <li className={`${active === "contact" ? "text-blue-500 underline  underline-offset-6 decoration-2" : ""} cursor-pointer font-bold`} onClick={() => handleActive("contact")}> <Link to={'/contact'}> Contact </Link> </li>
-        <li className={`${active === "skills" ? "text-blue-500 underline  underline-offset-6 decoration-2" : ""} cursor-pointer font-bold`} onClick={() => handleActive("skills")}> <Link to={'/skills'}> Skills </Link> </li>
       </ul>
       <p className='sm:hidden duration-150 ease-in-out'>
         {
