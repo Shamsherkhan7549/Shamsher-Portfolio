@@ -8,6 +8,7 @@ import Skills from './pages/Skills/Skills'
 import Navbar from './components/Navbar'
 import AddSkills from './components/AddSkills'
 import AddProjects from './components/AddProjects'
+import EducationsPage from './pages/educations/EducationsPage'
 
 
 const App = () => {
@@ -22,6 +23,7 @@ const App = () => {
         <Route path="/skills" element={<Skills />} />
         <Route path="/add-skill" element={<AddSkills />} />
         <Route path="/add-projects" element={<AddProjects />} />
+        <Route path="/educations" element={<EducationsPage />} />
       </Routes>
     </Router>
   )
